@@ -1,0 +1,907 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PRAJWAL BABANGOL </title>
+    <link rel="icon" type="image/png" href="./Images/profile2.png" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#0ea5e9',
+                        secondary: '#7e22ce',
+                        dark: '#0f172a',
+                        darker: '#020617',
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    },
+                }
+            }
+        }
+    </script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+        
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #0f172a;
+            color: #e2e8f0;
+        }
+        
+        .gradient-text {
+            background: linear-gradient(90deg, #0ea5e9, #7e22ce);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+        
+        .card-hover {
+            transition: all 0.3s ease;
+        }
+        
+        .card-hover:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(14, 165, 233, 0.2);
+        }
+        
+        .nav-link {
+            position: relative;
+        }
+        
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -2px;
+            left: 0;
+            background: linear-gradient(90deg, #0ea5e9, #7e22ce);
+            transition: width 0.3s ease;
+        }
+        
+        .nav-link:hover::after {
+            width: 100%;
+        }
+        
+        .active::after {
+            width: 100%;
+        }
+        
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            width: 15px;
+            height: 15px;
+            border-radius: 50%;
+            left: -7.5px;
+            top: 0;
+            background: linear-gradient(135deg, #0ea5e9, #7e22ce);
+        }
+        
+        .skill-bar {
+            height: 8px;
+            border-radius: 4px;
+            background-color: #1e293b;
+        }
+        
+        .skill-progress {
+            height: 100%;
+            border-radius: 4px;
+            background: linear-gradient(90deg, #0ea5e9, #7e22ce);
+            transition: width 1s ease-in-out;
+        }
+        
+        .project-card {
+            background: linear-gradient(145deg, #1e293b, #0f172a);
+            box-shadow: 5px 5px 15px rgba(2, 6, 23, 0.5), 
+                        -5px -5px 15px rgba(30, 41, 59, 0.5);
+        }
+        
+        .contact-input {
+            background-color: #1e293b;
+            border: 1px solid #334155;
+            transition: all 0.3s ease;
+        }
+        
+        .contact-input:focus {
+            border-color: #0ea5e9;
+            box-shadow: 0 0 0 2px rgba(14, 165, 233, 0.2);
+        }
+        
+        .btn-primary {
+            background: linear-gradient(90deg, #0ea5e9, #7e22ce);
+            transition: all 0.3s ease;
+        }
+        
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(14, 165, 233, 0.3);
+        }
+        
+        .social-icon {
+            transition: all 0.3s ease;
+        }
+        
+        .social-icon:hover {
+            transform: translateY(-3px);
+        }
+        
+        @keyframes float {
+            0%, 100% {
+                transform: translateY(0);
+            }
+            50% {
+                transform: translateY(-10px);
+            }
+        }
+        
+        .floating {
+            animation: float 3s ease-in-out infinite;
+        }
+    </style>
+</head>
+<body class="bg-dark text-slate-200">
+    <!-- Navigation -->
+    <nav class="fixed w-full bg-darker/80 backdrop-blur-sm z-50 shadow-lg">
+        <div class="container mx-auto px-6 py-4">
+            <div class="flex justify-between items-center">
+                <a href="#" class="text-2xl font-bold gradient-text">Portfolio</a>
+                
+                <!-- Mobile menu button -->
+                <div class="md:hidden">
+                    <button id="menu-toggle" class="text-slate-200 hover:text-primary focus:outline-none">
+                        <i class="fas fa-bars text-2xl"></i>
+                    </button>
+                </div>
+                
+                <!-- Desktop Menu -->
+                <div class="hidden md:flex space-x-8">
+                    <a href="#home" class="nav-link active">Home</a>
+                    <a href="#about" class="nav-link">About</a>
+                    <a href="#Eduction" class="nav-link">Education </a>
+                    <a href="#skills" class="nav-link">Skills</a>
+                    <a href="#projects" class="nav-link">Projects</a>
+                    <a href="#contact" class="nav-link">Contact</a>
+                </div>
+            </div>
+            
+            <!-- Mobile Menu -->
+            <div id="mobile-menu" class="hidden md:hidden mt-4 pb-2">
+                <a href="#home" class="block py-2 nav-link active">Home</a>
+                <a href="#about" class="block py-2 nav-link">About</a>
+                <a href="#skills" class="block py-2 nav-link">Skills</a>
+                <a href="#projects" class="block py-2 nav-link">Projects</a>
+                <a href="#contact" class="block py-2 nav-link">Contact</a>
+            </div>
+        </div>
+    </nav>
+    
+    <!-- Hero Section -->
+    <section id="home" class="min-h-screen flex items-center pt-20">
+        <div class="container mx-auto px-6 flex flex-col md:flex-row items-center justify-between">
+            <div class="md:w-1/2 mb-12 md:mb-0">
+                <h1 class="text-4xl md:text-6xl font-bold mb-4">Hi, I'm <span class="gradient-text">PRAJWAL BABANGOL</span></h1>
+                <h2 class="text-2xl md:text-3xl font-semibold mb-6 text-slate-300">FULL STACK DEVELOPER</h2>
+                <p class="text-lg mb-8 text-slate-400 max-w-lg">
+                   Im a passionate Software Developer and Full Stack enthusiast with hands-on experience in web development, cybersecurity, and building scalable applications. Skilled in modern technologies, I focus on creating fast, accessible, and visually engaging digital experiences. Always eager to learn and explore, I strive to transform ideas into impactful solutions. Let’s create something amazing together!
+                </p>
+                <div class="flex space-x-4">
+                    <a href="#contact" class="px-6 py-3 rounded-full btn-primary font-medium">Hire Me</a>
+                    <a href="#projects" class="px-6 py-3 rounded-full border border-primary text-primary font-medium hover:bg-primary/10 transition">View Work</a>
+                </div>
+                <div class="flex mt-8 space-x-4">
+    <!-- GitHub -->
+    <a href="https://github.com/Prajwalll14" target="_blank" 
+       class="social-icon text-xl w-10 h-10 flex items-center justify-center rounded-full bg-slate-800 hover:bg-primary">
+        <i class="fab fa-github"></i>
+    </a>
+
+    <!-- LinkedIn -->
+    <a href="https://www.linkedin.com/in/prajwal-babangol-6a9884266/" target="_blank" 
+       class="social-icon text-xl w-10 h-10 flex items-center justify-center rounded-full bg-slate-800 hover:bg-blue-600">
+        <i class="fab fa-linkedin-in"></i>
+    </a>
+
+    <!-- LeetCode -->
+    <a href="https://leetcode.com/u/UviCgKzQMW/" target="_blank" 
+       class="social-icon text-xl w-10 h-10 flex items-center justify-center rounded-full bg-slate-800 hover:bg-yellow-500">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-5 h-5">
+            <path d="M16.188 1.553a1 1 0 0 1 1.32.47l.894 1.789a1 1 0 0 1-.39 1.32l-7.92 5.04a1 1 0 0 0-.41.82c0 .32.16.62.41.82l7.92 5.04a1 1 0 0 1 .39 1.32l-.894 1.789a1 1 0 0 1-1.32.47L6.34 13.64a2 2 0 0 1 0-3.28L16.188 1.553z"/>
+        </svg>
+    </a>
+
+    <!-- GeeksforGeeks -->
+    <a href="https://www.geeksforgeeks.org/user/prajwalul7t/" target="_blank"
+       class="social-icon text-xl w-10 h-10 flex items-center justify-center rounded-full bg-slate-800 hover:bg-green-600">
+        <img width="24" height="24" src="https://img.icons8.com/color/48/GeeksforGeeks.png" alt="GeeksforGeeks"/>
+    </a>
+
+    <!-- CodeChef -->
+    <a href="https://www.codechef.com/users/prajwalll14" target="_blank"
+       class="social-icon text-xl w-10 h-10 flex items-center justify-center rounded-full bg-slate-800 hover:bg-amber-700">
+        <img width="24" height="24" src="https://img.icons8.com/ios-filled/50/codechef.png" alt="CodeChef"/>
+    </a>
+</div>
+
+            </div>
+            <div class="md:w-1/2 flex justify-center">
+                <div class="relative w-64 h-64 md:w-80 md:h-80 lg:w-96 lg:h-96">
+                    <div class="absolute inset-0 rounded-full bg-gradient-to-br from-primary to-secondary blur-xl opacity-20"></div>
+                    <img src="./Images/profile2.png" 
+                         alt="Profile" 
+                         class="relative w-full h-full object-cover rounded-full border-4 border-slate-800 floating">
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- About Section -->
+<section id="about" class="py-20 bg-darker">
+  <div class="container mx-auto px-6">
+    <div class="text-center mb-16">
+      <h2 class="text-3xl md:text-4xl font-bold mb-4">About <span class="gradient-text">Me</span></h2>
+      <div class="w-20 h-1 bg-gradient-to-r from-primary to-secondary mx-auto"></div>
+    </div>
+
+    <div class="flex flex-col md:flex-row items-center">
+      <div class="md:w-1/3 mb-8 md:mb-0 flex justify-center">
+        <div class="relative w-64 h-64">
+          <div class="absolute inset-0 rounded-2xl bg-gradient-to-br from-primary to-secondary blur-xl opacity-20"></div>
+          <img src="./Images/profile2.png" 
+               alt="About" 
+               class="relative w-full h-full object-cover rounded-2xl border-4 border-slate-800">
+        </div>
+      </div>
+
+      <div class="md:w-2/3 md:pl-12">
+        <h3 class="text-2xl font-bold mb-6">Who am I?</h3>
+        <p class="text-slate-400 mb-6">
+          "I am Prajwal Babangol, a Computer Science Engineering graduate with a strong interest in 
+          Software Development and Full Stack technologies. Skilled in building responsive web applications, 
+          secure coding, and problem-solving, I enjoy creating impactful digital solutions that are both 
+          functional and user-friendly. With experience in cybersecurity and development projects, I am 
+          passionate about learning, innovating, and turning ideas into reality."
+        </p>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
+          <div>
+            <h4 class="font-semibold mb-2">Name: <span class="text-slate-300">PRAJWAL BABANGOL</span></h4>
+            <h4 class="font-semibold mb-2">Email: <span class="text-slate-300">prajwalbabangol@gmail.com</span></h4>
+            <h4 class="font-semibold mb-2">Phone: <span class="text-slate-300">+91 8904486947</span></h4>
+          </div>
+          <div>
+            <h4 class="font-semibold mb-2">Age: <span class="text-slate-300">21</span></h4>
+            <h4 class="font-semibold mb-2">Location: <span class="text-slate-300">Mangaluru, India</span></h4>
+          </div>
+        </div>
+
+       <a 
+  href="https://drive.google.com/file/d/1dfvbNDBl70qCNzG9zTXWgJ0utQmexUUW/view?usp=drive_link" 
+  target="_blank" 
+  rel="noopener noreferrer"
+  class="inline-block text-white py-3 px-8 rounded-full mt-5 text-lg font-bold transition duration-300 transform hover:scale-105"
+  style="background: linear-gradient(90deg, #8245ec, #a855f7); 
+         box-shadow: 0 0 2px #8245ec, 0 0 2px #8245ec, 0 0 40px #8245ec;">
+  DOWNLOAD CV
+</a>
+
+          <a href="#contact" 
+             class="px-6 py-3 rounded-full border border-primary text-primary font-medium hover:bg-primary/10 transition">
+             Contact Me
+          </a>
+        </div>
+      </div>
+    </div>
+
+
+
+
+    <!-- Education Section -->
+<section id="education" class="py-20 bg-dark">
+  <div class="container mx-auto px-6">
+    <div class="text-center mb-16">
+      <h2 class="text-3xl md:text-4xl font-bold mb-4">My <span class="gradient-text">Education</span></h2>
+      <div class="w-20 h-1 bg-gradient-to-r from-primary to-secondary mx-auto"></div>
+    </div>
+
+    <div class="space-y-12 max-w-4xl mx-auto">
+
+      <!-- BE -->
+      <div class="p-6 bg-slate-800 rounded-lg shadow-lg">
+        <h3 class="text-xl font-bold mb-2">Alva's Institute of Engineering & Technology, Mijar</h3>
+        <p class="text-sm text-slate-400 mb-1">Sept 2022 - July 2026</p>
+        <p class="text-sm text-slate-400 mb-3">Degree: BE (Computer Science, IoT & Cyber Security including Blockchain Technology)</p>
+        <p class="text-sm text-slate-400 mb-3">Grade: <span class="text-slate-200 font-semibold">8.81 CGPA</span></p>
+        <p class="text-slate-300">
+          Completed B.E. in Computer Science specializing in IoT, Cyber Security, and Blockchain. 
+          Studied core CS subjects like Data Structures, Algorithms, OS, DBMS, CN along with emerging 
+          technologies. Actively participated in workshops, hackathons, and technical events, 
+          strengthening problem-solving and practical skills.
+        </p>
+      </div>
+
+      <!-- PUC -->
+      <div class="p-6 bg-slate-800 rounded-lg shadow-lg">
+        <h3 class="text-xl font-bold mb-2">Doddappa Appa PU Science College, Gulbarga</h3>
+        <p class="text-sm text-slate-400 mb-1">Sept 2020 - Aug 2022</p>
+        <p class="text-sm text-slate-400 mb-3">Degree: PUC (PCMB)</p>
+        <p class="text-sm text-slate-400 mb-3">Grade: <span class="text-slate-200 font-semibold">77.75%</span></p>
+        <p class="text-slate-300">
+          Completed Pre-University Course with Physics, Chemistry, Mathematics, and Biology (PCMB). 
+          Built strong foundations in analytical and scientific thinking with problem-solving, 
+          logical reasoning, and conceptual understanding.
+        </p>
+      </div>
+
+      <!-- School -->
+      <div class="p-6 bg-slate-800 rounded-lg shadow-lg">
+        <h3 class="text-xl font-bold mb-2">SRN Mehta School, Gulbarga</h3>
+        <p class="text-sm text-slate-400 mb-1">Apr 2019 - Mar 2020</p>
+        <p class="text-sm text-slate-400 mb-3">Degree: State Board (X), Science with Computer Application</p>
+        <p class="text-sm text-slate-400 mb-3">Grade: <span class="text-slate-200 font-semibold">84.5%</span></p>
+        <p class="text-slate-300">
+          Completed Class 10 under the State Board with a focus on Science and Computer Applications. 
+          Built a foundation in science and computer concepts.
+        </p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+    <!-- Experience Timeline -->
+    <div class="mt-20">
+      <h3 class="text-2xl font-bold mb-8 text-center">My <span class="gradient-text">Experience</span></h3>
+
+      <div class="relative max-w-3xl mx-auto">
+        <div class="absolute left-1/2 h-full w-0.5 bg-slate-700 transform -translate-x-1/2"></div>
+
+        <!-- Cyber Security Intern -->
+        <div class="mb-8 flex justify-between items-center w-full timeline-item">
+          <div class="order-1 w-5/12"></div>
+          <div class="order-1 w-5/12 px-4 py-4 bg-slate-800 rounded-lg shadow-lg">
+            <h4 class="text-lg font-bold mb-2">Cyber Security Intern</h4>
+            <p class="text-sm text-slate-400 mb-2">ShadowFox • 2023</p>
+            <p class="text-slate-300">
+              Worked on vulnerability assessments and penetration testing, assisted in secure coding practices, 
+              and analyzed security risks to strengthen application and network security.
+            </p>
+          </div>
+        </div>
+
+        <!-- Machine Learning Intern -->
+        <div class="mb-8 flex justify-between items-center w-full timeline-item">
+          <div class="order-1 w-5/12 px-4 py-4 bg-slate-800 rounded-lg shadow-lg">
+            <h4 class="text-lg font-bold mb-2">Machine Learning Intern</h4>
+            <p class="text-sm text-slate-400 mb-2">
+              Edunet Foundation – AICTE Virtual Internship (Sponsored by Shell) • June 2025
+            </p>
+            <p class="text-slate-300">
+              Built a multi-output regression model using RandomForestRegressor inside MultiOutputRegressor 
+              to predict multiple water quality parameters. Performed data preprocessing, analysis, 
+              and visualization with Python libraries such as pandas, numpy, matplotlib, and seaborn. 
+              Predicted parameters including NH4, BOD5, O2, NO3, NO2, SO4, PO4, CL, and Colloids; 
+              evaluated model performance using R² score and MSE.
+            </p>
+          </div>
+          <div class="order-1 w-5/12"></div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</section>
+
+    
+<!-- Skills Section -->
+<section id="skills" class="py-20 bg-dark">
+  <div class="container mx-auto px-6">
+    <div class="text-center mb-16">
+      <h2 class="text-3xl md:text-4xl font-bold mb-4">
+        My <span class="gradient-text">Skills</span>
+      </h2>
+      <div class="w-20 h-1 bg-gradient-to-r from-primary to-secondary mx-auto"></div>
+    </div>
+
+    <!-- Grid Layout -->
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+      
+      <!-- Technical Skills -->
+      <div class="bg-slate-800 rounded-xl p-6 shadow-lg hover:shadow-xl transition">
+        <h3 class="text-xl font-bold mb-4">Technical Skills</h3>
+        <div class="flex flex-wrap gap-2">
+          <span class="px-3 py-1 bg-primary/20 text-primary rounded-full text-sm">C / C++</span>
+          <span class="px-3 py-1 bg-primary/20 text-primary rounded-full text-sm">Python</span>
+          <span class="px-3 py-1 bg-primary/20 text-primary rounded-full text-sm">JavaScript (ES6+)</span>
+          <span class="px-3 py-1 bg-primary/20 text-primary rounded-full text-sm">HTML / CSS</span>
+          <span class="px-3 py-1 bg-primary/20 text-primary rounded-full text-sm">SQL</span>
+        </div>
+      </div>
+
+      <!-- Cybersecurity Tools -->
+      <div class="bg-slate-800 rounded-xl p-6 shadow-lg hover:shadow-xl transition">
+        <h3 class="text-xl font-bold mb-4">Cybersecurity Tools</h3>
+        <div class="flex flex-wrap gap-2">
+          <span class="px-3 py-1 bg-secondary/20 text-secondary rounded-full text-sm">Nmap</span>
+          <span class="px-3 py-1 bg-secondary/20 text-secondary rounded-full text-sm">Metasploit</span>
+          <span class="px-3 py-1 bg-secondary/20 text-secondary rounded-full text-sm">Burp Suite</span>
+          <span class="px-3 py-1 bg-secondary/20 text-secondary rounded-full text-sm">SQLmap</span>
+          <span class="px-3 py-1 bg-secondary/20 text-secondary rounded-full text-sm">Wireshark</span>
+          <span class="px-3 py-1 bg-secondary/20 text-secondary rounded-full text-sm">Kali Linux</span>
+        </div>
+      </div>
+
+      <!-- Frameworks & Tools -->
+      <div class="bg-slate-800 rounded-xl p-6 shadow-lg hover:shadow-xl transition">
+        <h3 class="text-xl font-bold mb-4">Frameworks & Tools</h3>
+        <div class="flex flex-wrap gap-2">
+          <span class="px-3 py-1 bg-green-500/20 text-green-400 rounded-full text-sm">Node.js</span>
+          <span class="px-3 py-1 bg-green-500/20 text-green-400 rounded-full text-sm">Express.js</span>
+          <span class="px-3 py-1 bg-green-500/20 text-green-400 rounded-full text-sm">Git</span>
+          <span class="px-3 py-1 bg-green-500/20 text-green-400 rounded-full text-sm">GitHub</span>
+          <span class="px-3 py-1 bg-green-500/20 text-green-400 rounded-full text-sm">Postman</span>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+ <!-- Tools & Technologies -->
+<div class="mt-16">
+  <h3 class="text-2xl font-bold mb-8 text-center">
+    Tools & <span class="gradient-text">Technologies</span>
+  </h3>
+
+  <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-6">
+
+    <div class="flex flex-col items-center p-6 bg-slate-800 rounded-lg card-hover">
+      <i class="fab fa-html5 text-4xl text-orange-500 mb-2"></i>
+      <span>HTML5</span>
+    </div>
+
+    <div class="flex flex-col items-center p-6 bg-slate-800 rounded-lg card-hover">
+      <i class="fab fa-css3-alt text-4xl text-blue-500 mb-2"></i>
+      <span>CSS3</span>
+    </div>
+
+    <div class="flex flex-col items-center p-6 bg-slate-800 rounded-lg card-hover">
+      <i class="fab fa-js text-4xl text-yellow-400 mb-2"></i>
+      <span>JavaScript</span>
+    </div>
+
+    <div class="flex flex-col items-center p-6 bg-slate-800 rounded-lg card-hover">
+      <i class="fab fa-react text-4xl text-blue-400 mb-2"></i>
+      <span>React</span>
+    </div>
+
+    <div class="flex flex-col items-center p-6 bg-slate-800 rounded-lg card-hover">
+      <i class="fab fa-node-js text-4xl text-green-500 mb-2"></i>
+      <span>Node.js</span>
+    </div>
+
+    <div class="flex flex-col items-center p-6 bg-slate-800 rounded-lg card-hover">
+      <i class="fas fa-server text-4xl text-gray-400 mb-2"></i>
+      <span>Express.js</span>
+    </div>
+
+    <div class="flex flex-col items-center p-6 bg-slate-800 rounded-lg card-hover">
+      <i class="fas fa-database text-4xl text-blue-300 mb-2"></i>
+      <span>SQL</span>
+    </div>
+
+    <div class="flex flex-col items-center p-6 bg-slate-800 rounded-lg card-hover">
+      <i class="fab fa-git-alt text-4xl text-orange-600 mb-2"></i>
+      <span>Git</span>
+    </div>
+
+    <div class="flex flex-col items-center p-6 bg-slate-800 rounded-lg card-hover">
+      <i class="fab fa-npm text-4xl text-red-500 mb-2"></i>
+      <span>npm</span>
+    </div>
+
+    <div class="flex flex-col items-center p-6 bg-slate-800 rounded-lg card-hover">
+      <i class="fas fa-terminal text-4xl text-gray-300 mb-2"></i>
+      <span>VS Code</span>
+    </div>
+
+    <div class="flex flex-col items-center p-6 bg-slate-800 rounded-lg card-hover">
+      <i class="fab fa-linux text-4xl text-white mb-2"></i>
+      <span>Linux</span>
+    </div>
+
+  </div>
+</div>
+
+
+    
+    <!-- Projects Section -->
+    <section id="projects" class="py-20 bg-darker">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold mb-4">My <span class="gradient-text">Projects</span></h2>
+                <div class="w-20 h-1 bg-gradient-to-r from-primary to-secondary mx-auto"></div>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Project 1 -->
+               <div class="project-card rounded-xl overflow-hidden card-hover">
+  <div class="h-48 overflow-hidden">
+    <img src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?ixlib=rb-4.0.3&auto=format&fit=crop&w=1470&q=80" 
+         alt="Image Search App" 
+         class="w-full h-full object-cover">
+  </div>
+  <div class="p-6">
+    <h3 class="text-xl font-bold mb-2">Image Search App</h3>
+    <p class="text-slate-400 mb-4">
+      A React.js-based image search application that allows users to search and download 
+      high-quality images from the web. Built using external APIs to provide a wide 
+      collection of images for different queries.
+    </p>
+    <div class="flex flex-wrap gap-2 mb-4">
+      <span class="px-3 py-1 bg-slate-700 rounded-full text-sm">React JS</span>
+      <span class="px-3 py-1 bg-slate-700 rounded-full text-sm">API</span>
+      <span class="px-3 py-1 bg-slate-700 rounded-full text-sm">Search Feature</span>
+      <span class="px-3 py-1 bg-slate-700 rounded-full text-sm">CSS</span>
+      <span class="px-3 py-1 bg-slate-700 rounded-full text-sm">JavaScript</span>
+    </div>
+    <div class="flex space-x-3">
+      <a href="https://imagsearch.netlify.app/" target="_blank" class="text-primary hover:text-secondary">
+        <i class="fas fa-external-link-alt"></i> Live Demo
+      </a>
+      <a href="https://github.com/Prajwalll14/Image-search-app" target="_blank" class="text-primary hover:text-secondary">
+        <i class="fab fa-github"></i> Code
+      </a>
+    </div>
+  </div>
+</div>
+
+
+
+
+            <!-- Project 2-->
+<div class="project-card rounded-xl overflow-hidden card-hover">
+  <div class="h-48 overflow-hidden">
+    <img src="https://images.unsplash.com/photo-1510511459019-5dda7724fd87?ixlib=rb-4.0.3&auto=format&fit=crop&w=1470&q=80" 
+         alt="Keylogger Project" 
+         class="w-full h-full object-cover">
+  </div>
+  <div class="p-6">
+    <h3 class="text-xl font-bold mb-2">Keylogger (Cybersecurity Project)</h3>
+    <p class="text-slate-400 mb-4">
+      Developed a Python-based keylogger as part of cybersecurity research. The project captures 
+      keystrokes securely and demonstrates potential security vulnerabilities, highlighting the 
+      importance of ethical hacking, secure coding, and system protection.
+    </p>
+    <div class="flex flex-wrap gap-2 mb-4">
+      <span class="px-3 py-1 bg-slate-700 rounded-full text-sm">Python</span>
+      <span class="px-3 py-1 bg-slate-700 rounded-full text-sm">Cybersecurity</span>
+      <span class="px-3 py-1 bg-slate-700 rounded-full text-sm">Ethical Hacking</span>
+    </div>
+    <div class="flex space-x-3">
+      <a href="#" class="text-primary hover:text-secondary">
+        <i class="fas fa-external-link-alt"></i> Live Demo
+      </a>
+      <a href="https://github.com/Prajwalll14/KEYLOGGER" class="text-primary hover:text-secondary">
+        <i class="fab fa-github"></i> Code
+      </a>
+    </div>
+  </div>
+</div>
+
+                
+            
+                
+              <!-- Project 7 -->
+<div class="project-card rounded-xl overflow-hidden card-hover">
+  <div class="h-48 overflow-hidden">
+    <img src="https://images.unsplash.com/photo-1567427017947-545c5f8d16ad?ixlib=rb-4.0.3&auto=format&fit=crop&w=1470&q=80" 
+         alt="Simple Banking System" 
+         class="w-full h-full object-cover">
+  </div>
+  <div class="p-6">
+    <h3 class="text-xl font-bold mb-2">Simple Banking System (C++)</h3>
+    <p class="text-slate-400 mb-4">
+      A console-based banking system developed in C++ using Object-Oriented Programming principles. 
+      Implemented core features such as account creation, deposit, withdrawal, balance inquiry, and 
+      transaction management to simulate a real-world banking workflow.
+    </p>
+    <div class="flex flex-wrap gap-2 mb-4">
+      <span class="px-3 py-1 bg-slate-700 rounded-full text-sm">C++</span>
+      <span class="px-3 py-1 bg-slate-700 rounded-full text-sm">OOP</span>
+      <span class="px-3 py-1 bg-slate-700 rounded-full text-sm">Data Structures</span>
+    </div>
+    <div class="flex space-x-3">
+      <a href="#" class="text-primary hover:text-secondary">
+        <i class="fas fa-external-link-alt"></i> Live Demo
+      </a>
+      <a href="#" class="text-primary hover:text-secondary">
+        <i class="fab fa-github"></i> Code
+      </a>
+    </div>
+  </div>
+</div>
+
+                
+                <!-- Project 5 -->
+                <div class="project-card rounded-xl overflow-hidden card-hover">
+                    <div class="h-48 overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1551434678-e076c223a692?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80" 
+                             alt="Project 5" 
+                             class="w-full h-full object-cover">
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold mb-2">Portfolio Website</h3>
+                        <p class="text-slate-400 mb-4">
+                            A responsive portfolio website built with modern design principles.
+                        </p>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="px-3 py-1 bg-slate-700 rounded-full text-sm">HTML5</span>
+                            <span class="px-3 py-1 bg-slate-700 rounded-full text-sm">CSS3</span>
+                            <span class="px-3 py-1 bg-slate-700 rounded-full text-sm">JavaScript</span>
+                        </div>
+                        <div class="flex space-x-3">
+                            <a href="#" class="text-primary hover:text-secondary">
+                                <i class="fas fa-external-link-alt"></i> Live Demo
+                            </a>
+                            <a href="#" class="text-primary hover:text-secondary">
+                                <i class="fab fa-github"></i> Code
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                
+            
+            
+            <div class="text-center mt-12">
+                <a href="#" class="px-8 py-3 rounded-full btn-primary font-medium inline-flex items-center">
+                    View All Projects <i class="fas fa-arrow-right ml-2"></i>
+                </a>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Contact Section -->
+    <section id="contact" class="py-20 bg-dark">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold mb-4">Get In <span class="gradient-text">Touch</span></h2>
+                <div class="w-20 h-1 bg-gradient-to-r from-primary to-secondary mx-auto"></div>
+            </div>
+            
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
+                <div>
+                    <h3 class="text-2xl font-bold mb-6">Contact Information</h3>
+                    <p class="text-slate-400 mb-8">
+                        Feel free to reach out to me for any questions or opportunities. 
+                        I'm always open to discussing new projects, creative ideas or opportunities to be part of your vision.
+                    </p>
+                    
+                    <div class="space-y-6">
+                        <div class="flex items-start">
+                            <div class="bg-slate-800 p-3 rounded-full mr-4">
+                                <i class="fas fa-map-marker-alt text-primary text-xl"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold mb-1">Location</h4>
+                                <p class="text-slate-400">Mangaluru , India</p>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-start">
+                            <div class="bg-slate-800 p-3 rounded-full mr-4">
+                                <i class="fas fa-envelope text-primary text-xl"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold mb-1">Email</h4>
+                                <p class="text-slate-400">prajwalbabangol@gmail.com</p>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-start">
+                            <div class="bg-slate-800 p-3 rounded-full mr-4">
+                                <i class="fas fa-phone-alt text-primary text-xl"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold mb-1">Phone</h4>
+                                <p class="text-slate-400">+91 8904486947</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="mt-8">
+                        <h4 class="font-bold mb-4">Follow Me</h4>
+                        <div class="flex mt-8 space-x-4">
+    <!-- GitHub -->
+    <a href="https://github.com/Prajwalll14" target="_blank" 
+       class="social-icon text-xl w-10 h-10 flex items-center justify-center rounded-full bg-slate-800 hover:bg-primary">
+        <i class="fab fa-github"></i>
+    </a>
+
+    <!-- LinkedIn -->
+    <a href="https://www.linkedin.com/in/prajwal-babangol-6a9884266/" target="_blank" 
+       class="social-icon text-xl w-10 h-10 flex items-center justify-center rounded-full bg-slate-800 hover:bg-blue-600">
+        <i class="fab fa-linkedin-in"></i>
+    </a>
+
+    <!-- LeetCode -->
+    <a href="https://leetcode.com/u/UviCgKzQMW/" target="_blank" 
+       class="social-icon text-xl w-10 h-10 flex items-center justify-center rounded-full bg-slate-800 hover:bg-yellow-500">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-5 h-5">
+            <path d="M16.188 1.553a1 1 0 0 1 1.32.47l.894 1.789a1 1 0 0 1-.39 1.32l-7.92 5.04a1 1 0 0 0-.41.82c0 .32.16.62.41.82l7.92 5.04a1 1 0 0 1 .39 1.32l-.894 1.789a1 1 0 0 1-1.32.47L6.34 13.64a2 2 0 0 1 0-3.28L16.188 1.553z"/>
+        </svg>
+    </a>
+
+    <!-- GeeksforGeeks -->
+    <a href="https://www.geeksforgeeks.org/user/prajwalul7t/" target="_blank"
+       class="social-icon text-xl w-10 h-10 flex items-center justify-center rounded-full bg-slate-800 hover:bg-green-600">
+        <img width="24" height="24" src="https://img.icons8.com/color/48/GeeksforGeeks.png" alt="GeeksforGeeks"/>
+    </a>
+
+    <!-- CodeChef -->
+    <a href="https://www.codechef.com/users/prajwalll14" target="_blank"
+       class="social-icon text-xl w-10 h-10 flex items-center justify-center rounded-full bg-slate-800 hover:bg-amber-700">
+        <img width="24" height="24" src="https://img.icons8.com/ios-filled/50/codechef.png" alt="CodeChef"/>
+    </a>
+</div>
+
+                    </div>
+                </div>
+                
+                <div>
+                    <h3 class="text-2xl font-bold mb-6">Send Me a Message</h3>
+                    <form class="space-y-6">
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                            <div>
+                                <label for="name" class="block mb-2 font-medium">Your Name</label>
+                                <input type="text" id="name" class="w-full px-4 py-3 rounded-lg contact-input focus:outline-none" required>
+                            </div>
+                            <div>
+                                <label for="email" class="block mb-2 font-medium">Your Email</label>
+                                <input type="email" id="email" class="w-full px-4 py-3 rounded-lg contact-input focus:outline-none" required>
+                            </div>
+                        </div>
+                        <div>
+                            <label for="subject" class="block mb-2 font-medium">Subject</label>
+                            <input type="text" id="subject" class="w-full px-4 py-3 rounded-lg contact-input focus:outline-none" required>
+                        </div>
+                        <div>
+                            <label for="message" class="block mb-2 font-medium">Message</label>
+                            <textarea id="message" rows="5" class="w-full px-4 py-3 rounded-lg contact-input focus:outline-none" required></textarea>
+                        </div>
+                        <button type="submit" class="px-8 py-3 rounded-full btn-primary font-medium w-full">
+                            Send Message <i class="fas fa-paper-plane ml-2"></i>
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Footer -->
+    <footer class="bg-darker py-12">
+        <div class="container mx-auto px-6">
+            <div class="flex flex-col md:flex-row justify-between items-center">
+                <div class="mb-6 md:mb-0">
+                    <a href="#" class="text-2xl font-bold gradient-text">Portfolio</a>
+                    
+                </div>
+                
+               <div class="flex mt-8 space-x-4">
+   
+            </div>
+            
+        </div>
+    </footer>
+    
+    <!-- Back to Top Button -->
+    <button id="back-to-top" class="fixed bottom-8 right-8 w-12 h-12 bg-primary rounded-full flex items-center justify-center text-white shadow-lg hidden">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+    
+    <script>
+        // Mobile menu toggle
+        const menuToggle = document.getElementById('menu-toggle');
+        const mobileMenu = document.getElementById('mobile-menu');
+        
+        menuToggle.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+        
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                const targetElement = document.querySelector(targetId);
+                
+                if (targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                    
+                    // Close mobile menu if open
+                    if (!mobileMenu.classList.contains('hidden')) {
+                        mobileMenu.classList.add('hidden');
+                    }
+                    
+                    // Update active link
+                    document.querySelectorAll('.nav-link').forEach(link => {
+                        link.classList.remove('active');
+                    });
+                    this.classList.add('active');
+                }
+            });
+        });
+        
+        // Update active link on scroll
+        window.addEventListener('scroll', () => {
+            const scrollPosition = window.scrollY;
+            
+            document.querySelectorAll('section').forEach(section => {
+                const sectionTop = section.offsetTop - 100;
+                const sectionHeight = section.offsetHeight;
+                const sectionId = section.getAttribute('id');
+                
+                if (scrollPosition >= sectionTop && scrollPosition < sectionTop + sectionHeight) {
+                    document.querySelectorAll('.nav-link').forEach(link => {
+                        link.classList.remove('active');
+                        if (link.getAttribute('href') === `#${sectionId}`) {
+                            link.classList.add('active');
+                        }
+                    });
+                }
+            });
+            
+            // Show/hide back to top button
+            const backToTopButton = document.getElementById('back-to-top');
+            if (scrollPosition > 300) {
+                backToTopButton.classList.remove('hidden');
+            } else {
+                backToTopButton.classList.add('hidden');
+            }
+        });
+        
+        // Back to top button
+        document.getElementById('back-to-top').addEventListener('click', () => {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+        
+        // Animate skill bars on scroll
+        const animateSkillBars = () => {
+            const skillBars = document.querySelectorAll('.skill-progress');
+            const skillsSection = document.getElementById('skills');
+            const skillsSectionTop = skillsSection.offsetTop;
+            const windowHeight = window.innerHeight;
+            
+            if (window.scrollY > skillsSectionTop - windowHeight + 200) {
+                skillBars.forEach(bar => {
+                    const width = bar.style.width;
+                    bar.style.width = '0';
+                    setTimeout(() => {
+                        bar.style.width = width;
+                    }, 100);
+                });
+                
+                // Remove event listener after animation
+                window.removeEventListener('scroll', animateSkillBars);
+            }
+        };
+        
+        window.addEventListener('scroll', animateSkillBars);
+    </script>
+</body>
+</html>
